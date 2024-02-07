@@ -20,6 +20,10 @@ const MyStack = () => {
           name='Map_Training'
           component={MapTrainingScreen}
         />
+        <Stack.Screen
+          name='Shelf_Labelling'
+          component={ShelfLabellingScreen}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -86,13 +90,39 @@ const MapTrainingScreen = ({ navigation, route }) => {
           ref={cameraRef}
         />
       )}
-      <TouchableOpacity style={styles.captureButton} onPress={takePicture}>
-        <Text style={styles.captureButtonText}>Take Picture</Text>
-      </TouchableOpacity>
+      <View style={styles.buttonContainer}>
+        <View style={styles.startEnd}>
+          <TouchableOpacity 
+            style={styles.circleBorder}
+            onPress={() => navigation.navigate('Shelf_Labelling')} 
+          >
+            <Image
+              style={styles.mic}
+              source={require('./assets/mic.png')}
+            />
+          </TouchableOpacity>
+          <Text style={styles.captureButtonText}>START/END</Text>
+        </View>
+        <View style={styles.startEnd}>
+          <TouchableOpacity 
+            style={styles.circleBorder}
+          >
+            <Image
+              style={styles.play}
+              source={require('./assets/play.png')}
+            />
+          </TouchableOpacity>
+          <Text style={styles.captureButtonText}>ADD LABEL</Text>
+        </View>
+      </View>
       <StatusBar style="auto" />
     </View>
   );
 };
+
+const ShelfLabellingScreen = ({}) => {
+
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -106,6 +136,18 @@ const styles = StyleSheet.create({
     height: 200,
     resizeMode: 'contain',
     margin: 10, 
+  },
+  mic: {
+    width: 50,
+    height: 50,
+    resizeMode: 'contain',
+    margin: 10,
+  },
+  play: {
+    width: 50,
+    height: 50,
+    resizeMode: 'contain',
+    margin: 10,
   },
   button: {
     backgroundColor: '#CF0A2C',
@@ -122,13 +164,12 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 25,
   },
-  captureButton: {
-    position: 'absolute',
-    bottom: 20,
-    alignSelf: 'center',
-    backgroundColor: 'rgba(255, 255, 255, 0.5)',
-    padding: 15,
-    borderRadius: 10,
+  startEnd: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginRight: 25,
+    marginLeft: 25,
+    top: 200
   },
   captureButtonText: {
     fontSize: 16,
@@ -139,6 +180,20 @@ const styles = StyleSheet.create({
     height: 250,
     width: 320,
     marginTop: -300
+  },
+  buttonContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingHorizontal: 20,
+  },
+  circleBorder: {
+    width: 70,
+    height: 70,
+    borderRadius: 35,
+    borderColor: 'black',
+    borderWidth: 2,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
 
