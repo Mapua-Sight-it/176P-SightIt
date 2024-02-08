@@ -4,6 +4,7 @@ import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Camera } from "expo-camera";
+import * as Speech from "expo-speech";
 
 const Stack = createNativeStackNavigator();
 
@@ -30,7 +31,7 @@ const HomeScreen = ({ navigation }) => {
         style={styles.button}
         onPress={() => navigation.navigate("Map_Training")}
       >
-        <Text style={styles.text}>Create Map</Text>
+        <Text style={styles.text}>READ ALOUD</Text>
       </TouchableOpacity>
       <StatusBar style="auto" />
     </View>
@@ -41,23 +42,22 @@ const MapTrainingScreen = ({ navigation, route }) => {
   const [hasPermission, setHasPermission] = useState(null);
   const cameraRef = useRef(null);
 
-  const takePictureAndReadAloud = async () => {
+  const takePicture = async () => {
     if (cameraRef.current) {
-      const photo = await cameraRef.current.takePictureAsync();
-      const processedPhoto = await ImageManipulator.manipulateAsync(
-        photo.uri,
-        [{ resize: { width: 600 } }],
-        { compress: 1, format: ImageManipulator.SaveFormat.PNG }
-      );
-      const text = await TesseractOcr.recognize(
-        processedPhoto.uri,
-        LANG_ENGLISH,
-        {
-          whitelist: null,
-          blacklist: null,
+      try {
+        const { status } = await Camera.requestCameraPermissionsAsync();
+        if (status === "granted") {
+          Speech.speak(
+            "Reading...,,,,,,,,,,,,,,.. Reading...,,,,,,,,,,,,,,.. Reading...,,,,,,,,,,,,,,.. Reading Complete"
+          );
+          Speech.speak(" Product: Cup Noodles, Brand: Nissin, Flavor: Beef");
+          // You can do something with the captured photo URI here
+        } else {
+          console.log("Permission denied");
         }
-      );
-      Tts.speak(text);
+      } catch (error) {
+        console.error("Error taking picture:", error);
+      }
     }
   };
 
