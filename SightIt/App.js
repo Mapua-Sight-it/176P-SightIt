@@ -43,6 +43,12 @@ const HomeScreen = ({ navigation }) => {
       >
         <Text style={styles.text}>Create Map</Text>
       </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => navigation.navigate('Shelf_Labelling')}
+      >
+        <Text style={styles.text}>Label Shelf</Text>
+      </TouchableOpacity>
       <StatusBar style="auto" />
     </View>
   );
