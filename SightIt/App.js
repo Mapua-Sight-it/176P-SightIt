@@ -17,7 +17,14 @@ const MyStack = () => {
           component={HomeScreen}
           options={{ headerShown: false }}
         />
-        <Stack.Screen name="Map_Training" component={MapTrainingScreen} />
+        <Stack.Screen
+          name='Map_Training'
+          component={MapTrainingScreen}
+        />
+        <Stack.Screen
+          name='Shelf_Labelling'
+          component={ShelfLabellingScreen}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -97,6 +104,10 @@ const MapTrainingScreen = ({ navigation, route }) => {
   );
 };
 
+const ShelfLabellingScreen = ({}) => {
+
+}
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -116,6 +127,18 @@ const styles = StyleSheet.create({
     width: 200,
     height: 200,
     resizeMode: "contain",
+    margin: 10,
+  },
+  mic: {
+    width: 50,
+    height: 50,
+    resizeMode: 'contain',
+    margin: 10,
+  },
+  play: {
+    width: 50,
+    height: 50,
+    resizeMode: 'contain',
     margin: 10,
   },
   button: {
@@ -152,6 +175,20 @@ const styles = StyleSheet.create({
     flex: 1,
     borderRadius: 40, // Add the same borderRadius here
     overflow: "hidden", // And here
+  },
+  buttonContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingHorizontal: 20,
+  },
+  circleBorder: {
+    width: 70,
+    height: 70,
+    borderRadius: 35,
+    borderColor: 'black',
+    borderWidth: 2,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
 
