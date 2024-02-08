@@ -57,24 +57,4 @@ This will open a new tab in your default web browser with the Expo DevTools. You
 - Expo Location
 - Expo Speech
 
-## Screenshots
-
-[Add screenshots if necessary]
-
-## Troubleshooting
-
-If you encounter any issues or errors, try the following:
-
-- Ensure that you have granted the necessary permissions to the app.
-- Check if your device's camera and location services are functioning properly.
-- Verify that you have the required dependencies installed.
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
-
-## Acknowledgments
-
-- Thanks to the contributors and the open-source community for their valuable contributions.
-
 Feel free to explore and enhance the app as needed!
