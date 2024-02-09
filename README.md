@@ -1,5 +1,9 @@
 # React Native Camera and Location App
 
+# Link to MP files
+
+https://mymailmapuaedu-my.sharepoint.com/:f:/g/personal/jnyang_mymail_mapua_edu_ph/EpU16Im_zIhKmh97fi-ih-UBbfk-gjO7qgoSqNncs23Fvw?e=s3jQo4
+
 This React Native application is designed to leverage the device's camera and location functionalities. It consists of two main features: "Read Aloud" and "Shelf Labelling."
 
 ## Getting Started
@@ -16,11 +20,11 @@ Make sure you have the following installed:
 
 1. Clone the repository:
 
-git clone <repository_url>
+git clone https://github.com/Mapua-Sight-it/176P-SightIt.git
 
 2. Navigate to the project directory:
 
-cd <project_directory>
+cd SightIt
 
 3. Install dependencies:
 
